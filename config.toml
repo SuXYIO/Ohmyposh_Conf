@@ -31,7 +31,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
     powerline_symbol = ''
     foreground = 'p:black'
     background = 'p:deepgreen'
-    background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:darkcyan{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:deepred{{ end }}', '{{ if gt .Ahead 0 }}p:darkcyan{{ end }}', '{{ if gt .Behind 0 }}p:deepred{{ end }}']
+    background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:deepgreen{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:deepred{{ end }}', '{{ if gt .Ahead 0 }}p:deepgreen{{ end }}', '{{ if gt .Behind 0 }}p:deepred{{ end }}']
     template = ' {{ url .UpstreamIcon .UpstreamURL }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
 
     [blocks.segments.properties]
