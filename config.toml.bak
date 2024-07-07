@@ -1,9 +1,6 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
+auto_upgrade = true
 final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
-auto_upgrade = true
 
 [[blocks]]
   type = 'prompt'
@@ -16,7 +13,6 @@ auto_upgrade = true
     background = 'p:white'
     leading_diamond = ''
     trailing_diamond = ''
-    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
 
   [[blocks.segments]]
     type = 'path'
@@ -24,7 +20,7 @@ auto_upgrade = true
     powerline_symbol = ''
     foreground = 'p:white'
     background = 'p:black'
-    template = ' {{ .Path }} '
+    template = '  {{ path .Path .Location }} '
 
     [blocks.segments.properties]
       style = 'folder'
@@ -36,7 +32,7 @@ auto_upgrade = true
     foreground = 'p:black'
     background = 'p:deepgreen'
     background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:deepgreen{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:deepred{{ end }}', '{{ if gt .Ahead 0 }}p:deepgreen{{ end }}', '{{ if gt .Behind 0 }}p:deepred{{ end }}']
-    template = ' {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
+    template = ' {{ url .UpstreamIcon .UpstreamURL }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
 
     [blocks.segments.properties]
       branch_icon = ' '
@@ -51,7 +47,7 @@ auto_upgrade = true
     powerline_symbol = ''
     foreground = 'p:white'
     background = 'p:yellow'
-    template = '  '
+    template = '  '
 
   [[blocks.segments]]
     type = 'status'
@@ -61,7 +57,7 @@ auto_upgrade = true
     background_templates = ['{{ if gt .Code 0 }}p:deepred{{ end }}']
     leading_diamond = '<transparent,background></>'
     trailing_diamond = '<background,transparent></>'
-    template = ' {{ .String }} '
+    template = ' {{ if gt .Code 0 }}󰅝{{ else }}{{ end }} '
 
     [blocks.segments.properties]
       always_enabled = true
@@ -77,7 +73,7 @@ auto_upgrade = true
     background = 'p:grey'
     leading_diamond = '<p:grey,transparent></>'
     trailing_diamond = '<transparent,p:grey></>'
-    template = ' {{ .Name }} '
+    template = '  {{ .Name }} '
 
   [[blocks.segments]]
     type = 'executiontime'
@@ -86,7 +82,7 @@ auto_upgrade = true
     background = 'p:grey'
     leading_diamond = '<p:grey,transparent></>'
     trailing_diamond = '<transparent,p:grey></>'
-    template = ' {{ .FormattedMs }} '
+    template = ' {{ .FormattedMs }}'
 
     [blocks.segments.properties]
       style = 'roundrock'
@@ -97,9 +93,9 @@ auto_upgrade = true
     style = 'diamond'
     foreground = 'p:white'
     background = 'p:darkpink'
-    leading_diamond = '<p:darkpink,transparent></>'
     trailing_diamond = '<transparent,p:darkpink></>'
-    template = ' {{ round .PhysicalPercentUsed .Precision }} '
+    leading_diamond = '<p:darkpink,transparent></>'
+    template = ' {{ round .PhysicalPercentUsed .Precision }}% '
 
   [[blocks.segments]]
     type = 'time'
@@ -108,7 +104,7 @@ auto_upgrade = true
     background = 'p:white'
     leading_diamond = ''
     trailing_diamond = ''
-    template = ' {{ .CurrentDate | date .Format }} '
+    template = ' {{ .CurrentDate | date .Format }}'
 
 [transient_prompt]
   foreground = 'p:black'
@@ -122,17 +118,17 @@ auto_upgrade = true
 
 [palette]
   black = '#000000'
-  blue = '#0000ff'
-  cyan = '#00ffff'
-  darkcyan = '#008888'
-  darkpink = '#880088'
-  darkyellow = '#888800'
-  deepblue = '#000088'
-  deepgreen = '#008800'
-  deepred = '#880000'
-  green = '#00ff00'
   grey = '#888888'
-  pink = '#ff00ff'
-  red = '#ff0000'
   white = '#ffffff'
+  red = '#ff0000'
+  green = '#00ff00'
+  blue = '#0000ff'
+  deepred = '#880000'
+  deepgreen = '#008800'
+  deepblue = '#000088'
   yellow = '#ffff00'
+  pink = '#ff00ff'
+  cyan = '#00ffff'
+  darkyellow = '#888800'
+  darkpink = '#880088'
+  darkcyan = '#008888'
