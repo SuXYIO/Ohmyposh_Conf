@@ -23,8 +23,8 @@ auto_upgrade = true
     style = 'powerline'
     powerline_symbol = ''
     foreground = 'p:white'
-    background = 'p:black'
-    template = ' {{ .Path }} '
+    background = '#010101'
+    template = '  {{ .Path }} '
 
     [blocks.segments.properties]
       style = 'folder'
@@ -77,7 +77,7 @@ auto_upgrade = true
     background = 'p:grey'
     leading_diamond = '<p:grey,transparent></>'
     trailing_diamond = '<transparent,p:grey></>'
-    template = ' {{ .Name }} '
+    template = ' 󰞷 {{ .Name }} '
 
   [[blocks.segments]]
     type = 'executiontime'
@@ -86,7 +86,7 @@ auto_upgrade = true
     background = 'p:grey'
     leading_diamond = '<p:grey,transparent></>'
     trailing_diamond = '<transparent,p:grey></>'
-    template = ' {{ .FormattedMs }} '
+    template = ' 󱎫 {{ .FormattedMs }} '
 
     [blocks.segments.properties]
       style = 'roundrock'
@@ -99,7 +99,7 @@ auto_upgrade = true
     background = 'p:darkpink'
     leading_diamond = '<p:darkpink,transparent></>'
     trailing_diamond = '<transparent,p:darkpink></>'
-    template = ' {{ round .PhysicalPercentUsed .Precision }} '
+    template = '  {{ round .PhysicalPercentUsed .Precision }} '
 
   [[blocks.segments]]
     type = 'time'
@@ -108,7 +108,7 @@ auto_upgrade = true
     background = 'p:white'
     leading_diamond = ''
     trailing_diamond = ''
-    template = ' {{ .CurrentDate | date .Format }} '
+    template = ' 󰥔 {{ .CurrentDate | date .Format }} '
 
 [transient_prompt]
   foreground = 'p:black'
