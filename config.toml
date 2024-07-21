@@ -82,10 +82,10 @@ auto_upgrade = true
   [[blocks.segments]]
     type = 'executiontime'
     style = 'diamond'
-    foreground = 'p:black'
-    background = 'p:grey'
-    leading_diamond = '<p:grey,transparent></>'
-    trailing_diamond = '<transparent,p:grey></>'
+    foreground = 'p:white'
+    background = 'p:black'
+    leading_diamond = '<p:black,transparent></>'
+    trailing_diamond = '<transparent,p:black></>'
     template = ' 󱎫 {{ .FormattedMs }} '
 
     [blocks.segments.properties]
